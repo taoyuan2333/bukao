@@ -1,0 +1,88 @@
+# 实验目的
+
+- 利用字符串String及其方法对古诗做对齐处理
+- 设计系统的输入/输出，把处理结果保存在文件中存储
+
+# 任务
+
+- 利用已学的字符串处理知识编程完成《长恨歌》古诗的整理对齐工作。
+- 每7个汉字加入一个标点符号，奇数时加“，”，偶数时加“。”
+- 输入参数，统计某个字或某个词的出现次数
+- 处理异常
+
+# 实验核心方法
+
+- String字符串的io流操作
+
+```java
+String poet="",word;
+			BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+			System.out.println("请输入古诗：");
+			poet=br.readLine();
+```
+
+
+
+
+
+- String字符串的常用方法
+
+```java
+File file=new File("output.txt");
+file.createNewFile();
+FileWriter writer=new FileWriter(file);
+
+for(int x=0;x<charArr.length;x++)
+{
+   d = Character.toString(charArr[x]);
+   if(d.matches("[\\u4e00-\\u9fa5]")){
+      n++;
+      if(substr.equals(d))
+         cnt++;
+      sentence+=d;
+      if(n==7)   sentence+="，";
+      else if(n==14){
+         sentence+="。";
+         System.out.println(sentence);
+         writer.append(sentence+"\r\n");
+         sentence="";
+         n=0;
+```
+
+- 文件的输入与输出
+
+```java
+File file=new File("output.txt");
+			file.createNewFile();
+			FileWriter writer=new FileWriter(file);
+```
+
+- 异常处理
+
+```
+try{
+	........
+			}catch(Exception e){
+			e.printStackTrace();
+		}
+```
+
+
+
+# 实验结果
+
+- 输入古诗词
+
+![https://s1.ax1x.com/2020/04/26/J6DPfA.png](https://s1.ax1x.com/2020/04/26/J6DPfA.png)
+
+- 输入要统计的字
+
+![https://s1.ax1x.com/2020/04/26/J6DEOf.png](https://s1.ax1x.com/2020/04/26/J6DEOf.png)
+
+- 输出结果
+
+![https://s1.ax1x.com/2020/04/26/J6DmTg.png](https://s1.ax1x.com/2020/04/26/J6DmTg.png)
+
+- 输出到本地txt文件
+
+![https://s1.ax1x.com/2020/04/26/J6DMfs.png](https://s1.ax1x.com/2020/04/26/J6DMfs.png)
